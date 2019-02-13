@@ -63,12 +63,12 @@ class RestaurantsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_restaurant
-      @restaurant = Restaurant.find(params[:id])
-    end
+  def set_restaurant
+    @restaurant = Restaurant.find(params[:id].to_i)
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def restaurant_params
-      params.require(:restaurant).permit(:name, :address, :phone_number, :category)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def restaurant_params
+    params.require(:restaurant).permit(:name, :address, :phone_number, :category)
+  end
 end
